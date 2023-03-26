@@ -25,11 +25,11 @@ def split_pdf(filename: str, pages: str):
                 with open(f"{new_filename}_{i}.pdf", "wb") as output_stream:
                     new_file.write(output_stream)
             new_file = PdfFileWriter()
-
+        # Add to page
         new_file.addPage(pdf_org.getPage(i))
 
     # write last file
-    with open(f"{new_filename}_{i}.pdf", "wb") as output_stream:
+    with open(f"{new_filename}_{i+1}.pdf", "wb") as output_stream:
         new_file.write(output_stream)
 
 if __name__ == "__main__":
